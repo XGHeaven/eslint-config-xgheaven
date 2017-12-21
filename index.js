@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['eslint:standard'],
+  extends: ['standard'],
   rules: {
     'comma-dangle': ['error', 'always-multiline'],
     'no-trailing-spaces': ['error', {

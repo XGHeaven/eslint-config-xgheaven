@@ -1,6 +1,6 @@
 {
   "name": "@xgheaven/eslint-config-xgheaven",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "a custom eslint for me(xgheaven)",
   "main": "index.js",
   "scripts": {

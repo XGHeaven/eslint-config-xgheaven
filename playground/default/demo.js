@@ -1,17 +1,19 @@
 import path from 'path'
 
-const _promise = new Promise((resolve, reject) => {
+const _promise = new Promise((resolve, rej) => {
   resolve()
-}).then(() => {
-  return
-}).catch(e => {
-  // TODO: Do something
-  console.log(e)
-}).finally(() => {
 })
+  .then(() => {})
+  .catch((e) => {
+    // TODO: Do something
+    console.log(e)
+  })
+  .finally(() => {})
 
 // block-spacing
-const blockSpacing = () => { console.log('block-spacing') }
+const blockSpacing = () => {
+  console.log('block-spacing')
+}
 
 // brace-style
 if (typeof blockSpacing === 'function') {
@@ -20,9 +22,9 @@ if (typeof blockSpacing === 'function') {
   console.log('block-spacing is not a function')
 }
 
-function camelcase () {
+function camelcase() {
   const camelCase = {
-    isCamelcase () {
+    isCamelcase() {
       return true
     },
   }
@@ -32,46 +34,38 @@ function camelcase () {
 
 camelcase()
 
-console.log({noMoreComma: 'ba'})
+console.log({ noMoreComma: 'ba' })
 console.log({
   comma: true,
   multiline: true,
   singleArray: ['a', 'b', 'c'],
-  multiArray: [
-    1,
-    2,
-    3,
-  ],
+  multiArray: [1, 2, 3],
 })
 
-function *Generators () {
+function* Generators() {
   yield 'hahaha'
 }
 Generators()
 
-function readFile (e, callback) {
+function readFile(e, callback) {
   if (e) {
     return callback(e)
   }
 }
 
 if (path) {
-  let b = 6
+  const b = 6
   console.log(b)
 }
 
 let value = 0
 
 switch (value) {
-case 0:
-  value++
-  break
+  case 0:
+    value++
+    break
 }
 
-export function Iron () {
+export function Iron() {}
 
-}
-
-export {
-  readFile,
-}
+export { readFile }

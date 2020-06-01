@@ -2,7 +2,12 @@
   "name": "@xgheaven/eslint-config-xgheaven",
   "version": "0.2.0",
   "description": "a custom eslint for me(xgheaven)",
-  "main": "index.js",
+  "main": "default.js",
+  "files": [
+    "default.js",
+    "typescript.js",
+    "react.js"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,10 +18,28 @@
   "author": "XGHeaven",
   "license": "MIT",
   "dependencies": {
-    "eslint-config-standard": "^11.0.0-beta.0",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-node": "^5.2.1",
-    "eslint-plugin-promise": "^3.6.0",
-    "eslint-plugin-standard": "^3.0.1"
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1"
+  },
+  "optionalDependencies": {
+    "@typescript-eslint/eslint-plugin": "^3.0.2",
+    "@typescript-eslint/parser": "^3.0.2",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react-hooks": "^4.0.4"
+  },
+  "peerDependencies": {
+    "eslint": ">= 5 || <= 7"
+  },
+  "devDependencies": {
+    "@types/eslint": "^6.8.1",
+    "@types/react": "^16.9.35",
+    "eslint": "^7.1.0",
+    "react": "^16.13.1",
+    "typescript": "^3.9.3"
   }
 }

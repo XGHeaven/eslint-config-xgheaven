@@ -1,6 +1,6 @@
 {
   "name": "@xgheaven/eslint-config-xgheaven",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "a custom eslint for me(xgheaven)",
   "main": "default.js",
   "files": [
@@ -23,8 +23,7 @@
     "eslint-plugin-import": "^2.29.0",
     "eslint-plugin-n": "^16.2.0",
     "eslint-plugin-prettier": "^5.0.1",
-    "eslint-plugin-promise": "^6.1.1",
-    "eslint-plugin-standard": "^5.0.0"
+    "eslint-plugin-promise": "^6.1.1"
   },
   "optionalDependencies": {
     "@typescript-eslint/eslint-plugin": "^6.9.0",

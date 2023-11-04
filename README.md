@@ -8,3 +8,9 @@ Modified By Me.
 # npm install https://github.com/XGHeaven/eslint-config-xgheaven.git#tag
 # yarn add https://github.com/XGHeaven/eslint-config-xgheaven.git#commit
 ```
+
+## Preset
+
+- `/` used for javascript and node environment, with prettier config
+- `/react` used for react
+- `/typescript` used for typescript

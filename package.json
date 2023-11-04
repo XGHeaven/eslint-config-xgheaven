@@ -1,6 +1,6 @@
 {
   "name": "@xgheaven/eslint-config-xgheaven",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "a custom eslint for me(xgheaven)",
   "main": "default.js",
   "files": [
@@ -18,28 +18,26 @@
   "author": "XGHeaven",
   "license": "MIT",
   "dependencies": {
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-config-standard": "^14.1.1",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^3.1.3",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1"
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-n": "^16.2.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-standard": "^5.0.0"
   },
   "optionalDependencies": {
-    "@typescript-eslint/eslint-plugin": "^3.0.2",
-    "@typescript-eslint/parser": "^3.0.2",
-    "eslint-plugin-react": "^7.20.0",
-    "eslint-plugin-react-hooks": "^4.0.4"
-  },
-  "peerDependencies": {
-    "eslint": ">= 5 || <= 7"
+    "@typescript-eslint/eslint-plugin": "^6.9.0",
+    "@typescript-eslint/parser": "^6.9.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0"
   },
   "devDependencies": {
-    "@types/eslint": "^6.8.1",
-    "@types/react": "^16.9.35",
-    "eslint": "^7.1.0",
-    "react": "^16.13.1",
-    "typescript": "^3.9.3"
+    "@types/eslint": "^8.44.6",
+    "@types/react": "^18.2.33",
+    "eslint": "^8.52.0",
+    "prettier": "^3.0.3",
+    "react": "^18.2.0",
+    "typescript": "^5.2.2"
   }
 }

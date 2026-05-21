@@ -1,18 +1,22 @@
-/**
- * @type {import('eslint').Linter.Config}
- */
-module.exports = {
-  extends: ['plugin:@typescript-eslint/recommended'],
-  parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint'],
-  rules: {
-    '@typescript-eslint/explicit-module-boundary-types': 'off',
-    '@typescript-eslint/no-explicit-any': 'warn',
-    '@typescript-eslint/no-inferrable-types': 'off',
+const tseslint = require('typescript-eslint')
 
-    // Most of rules are unnecessary since typescript
-    'no-unused-expressions': 'off', // typescript builtin support
-    'promise/param-names': 'off',
-    'standard/no-callback-literal': 'off',
+const tsFiles = ['**/*.{ts,tsx,mts,cts}']
+
+/** @type {import('eslint').Linter.Config[]} */
+module.exports = [
+  ...tseslint.configs.recommended.map((config) => ({
+    files: tsFiles,
+    ...config,
+  })),
+  {
+    files: tsFiles,
+    rules: {
+      '@typescript-eslint/explicit-module-boundary-types': 'off',
+      '@typescript-eslint/no-explicit-any': 'warn',
+      '@typescript-eslint/no-inferrable-types': 'off',
+      'no-unused-expressions': 'off',
+      'promise/param-names': 'off',
+      'n/no-callback-literal': 'off',
+    },
   },
-}
+]

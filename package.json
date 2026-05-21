@@ -1,15 +1,33 @@
 {
   "name": "@xgheaven/eslint-config-xgheaven",
-  "version": "0.4.1",
-  "description": "a custom eslint for me(xgheaven)",
-  "main": "default.js",
+  "version": "0.5.0",
+  "description": "Flat ESLint 9/10 config (base, TypeScript, React) for xgheaven",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./base": "./base.js",
+    "./typescript": "./typescript.js",
+    "./react": "./react.js",
+    "./all": "./all.js",
+    "./prettier-options": "./prettier-options.js",
+    "./package.json": "./package.json"
+  },
   "files": [
-    "default.js",
+    "index.js",
+    "base.js",
     "typescript.js",
-    "react.js"
+    "react.js",
+    "all.js",
+    "rules/",
+    "prettier-options.js"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint .",
+    "test": "pnpm run test:exports && pnpm run test:base && pnpm run test:typescript && pnpm run test:react",
+    "test:exports": "node scripts/test-exports.js",
+    "test:base": "eslint -c playground/base/eslint.config.js playground/base",
+    "test:typescript": "eslint -c playground/typescript/eslint.config.js playground/typescript",
+    "test:react": "eslint -c playground/react/eslint.config.js playground/react"
   },
   "repository": {
     "type": "git",
@@ -17,26 +35,41 @@
   },
   "author": "XGHeaven",
   "license": "MIT",
-  "dependencies": {
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-config-standard": "^17.1.0",
-    "eslint-plugin-import": "^2.29.0",
-    "eslint-plugin-n": "^16.2.0",
-    "eslint-plugin-prettier": "^5.0.1",
-    "eslint-plugin-promise": "^6.1.1"
+  "engines": {
+    "node": ">=20"
   },
-  "optionalDependencies": {
-    "@typescript-eslint/eslint-plugin": "^6.9.0",
-    "@typescript-eslint/parser": "^6.9.0",
-    "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-react-hooks": "^4.6.0"
+  "peerDependencies": {
+    "eslint": "^9.0.0 || ^10.0.0",
+    "prettier": ">=3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "prettier": {
+      "optional": true
+    },
+    "typescript": {
+      "optional": true
+    },
+    "react": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@eslint/js": "^9.28.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-n": "^17.21.3",
+    "eslint-plugin-prettier": "^5.5.0",
+    "eslint-plugin-promise": "^7.2.1",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "globals": "^16.2.0",
+    "typescript-eslint": "^8.33.1"
   },
   "devDependencies": {
-    "@types/eslint": "^8.44.6",
-    "@types/react": "^18.2.33",
-    "eslint": "^8.52.0",
-    "prettier": "^3.0.3",
-    "react": "^18.2.0",
-    "typescript": "^5.2.2"
+    "@types/react": "^19.1.6",
+    "eslint": "^9.28.0",
+    "prettier": "^3.5.3",
+    "react": "^19.1.0",
+    "typescript": "^5.8.3"
   }
 }

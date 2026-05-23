@@ -1,6 +1,9 @@
-import React, { Component, useState, useMemo, useCallback } from 'react'
+import React, { Component, useCallback, useState } from 'react'
 
-export class Foo extends Component {
+type FooProps = Record<string, never>
+type Foo2Props = { label: string }
+
+export class Foo extends Component<FooProps> {
   static getDerivedStateFromProps() {
     return null
   }
@@ -8,7 +11,7 @@ export class Foo extends Component {
   foo = 1
   bar = 2
 
-  constructor(props) {
+  constructor(props: FooProps) {
     super(props)
     console.log('foo')
   }
@@ -30,18 +33,23 @@ export class Foo extends Component {
       <div>
         bar
         {this.renderFoo()}
-        <button></button>
+        <button type='button'>click</button>
       </div>
     )
   }
 }
 
-export function Foo2(props: any) {
-  const [ count, setCount ] = useState(0)
+const Foo2 = ({ label }: Foo2Props) => {
+  const [count, setCount] = useState(0)
   const onClick = useCallback(() => {
-    if (count > 0) {
-      setCount(1)
-    }
+    setCount((current) => current + 1)
   }, [])
-  return <div>foo2</div>
+
+  return (
+    <button type='button' onClick={onClick}>
+      {label}: {count}
+    </button>
+  )
 }
+
+export { Foo2 }

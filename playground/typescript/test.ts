@@ -1,10 +1,12 @@
-export type F<T> = T extends any ? true : false
+export type F<T> = T extends unknown ? true : false
 export const a = 1
 
-export function b(...args: any[]) {
+const b = (...args: unknown[]) => {
   console.log(...args)
 }
 
-export function c() {
+const c = () => {
   return ''
 }
+
+export { b, c }

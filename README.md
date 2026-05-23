@@ -1,13 +1,13 @@
 # eslint-config-xgheaven
 
-Flat ESLint 9/10 shareable config factory (CommonJS), inspired by `neostandard()`.
+Flat ESLint 9 shareable config factory (CommonJS), inspired by `neostandard()`.
 
 ```bash
 npm install @xgheaven/eslint-config-xgheaven eslint prettier
 # or: pnpm add @xgheaven/eslint-config-xgheaven eslint prettier
 ```
 
-Requires Node.js `>=20` and ESLint `^9` or `^10`.
+Requires Node.js `>=20` and ESLint `^9`.
 
 ## Usage
 
@@ -15,9 +15,9 @@ Requires Node.js `>=20` and ESLint `^9` or `^10`.
 
 ```js
 // eslint.config.js
-const xg = require('@xgheaven/eslint-config-xgheaven')
+const config = require('@xgheaven/eslint-config-xgheaven')
 
-module.exports = xg({
+module.exports = config({
   ignores: ['dist/**', 'coverage/**'],
 })
 ```
@@ -25,17 +25,17 @@ module.exports = xg({
 ### TypeScript
 
 ```js
-const xg = require('@xgheaven/eslint-config-xgheaven')
+const config = require('@xgheaven/eslint-config-xgheaven')
 
-module.exports = xg({ ts: true })
+module.exports = config({ ts: true })
 ```
 
 ### React (+ TypeScript)
 
 ```js
-const xg = require('@xgheaven/eslint-config-xgheaven')
+const config = require('@xgheaven/eslint-config-xgheaven')
 
-module.exports = xg({ ts: true, react: true })
+module.exports = config({ ts: true, react: true })
 ```
 
 The root export accepts `neostandard` options and adds:
@@ -46,10 +46,10 @@ The root export accepts `neostandard` options and adds:
 `resolveIgnoresFromGitignore` is re-exported on the function:
 
 ```js
-const xg = require('@xgheaven/eslint-config-xgheaven')
+const config = require('@xgheaven/eslint-config-xgheaven')
 
-module.exports = xg({
-  ignores: xg.resolveIgnoresFromGitignore(),
+module.exports = config({
+  ignores: config.resolveIgnoresFromGitignore(),
 })
 ```
 
@@ -70,9 +70,9 @@ module.exports = xg({
 **After** (`eslint.config.js`):
 
 ```js
-const xg = require('@xgheaven/eslint-config-xgheaven')
+const config = require('@xgheaven/eslint-config-xgheaven')
 
-module.exports = xg({ ts: true, react: true })
+module.exports = config({ ts: true, react: true })
 ```
 
 Breaking changes in `0.5.0`:

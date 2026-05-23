@@ -1,7 +1,7 @@
-const xg = require('../..')
+const xconfig = require('../..')
 
 module.exports = [
-  ...xg(),
+  ...xconfig(),
   {
     ignores: ['node_modules/**'],
   },

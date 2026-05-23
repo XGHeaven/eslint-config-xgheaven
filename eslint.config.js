@@ -1,10 +1,10 @@
-const xg = require('.')
+const xconfig = require('.')
 
 module.exports = [
   {
     ignores: ['node_modules/**', 'dist/**', 'playground/**', 'docs/**', 'pnpm-lock.yaml'],
   },
-  ...xg({ ts: true }),
+  ...xconfig({ ts: true }),
   {
     files: ['src/**/*.ts'],
     rules: {

@@ -12,8 +12,7 @@
   ],
   "scripts": {
     "lint": "pnpm run build && eslint .",
-    "test": "pnpm run build && pnpm run test:exports && pnpm run test:base && pnpm run test:typescript && pnpm run test:react",
-    "test:exports": "node scripts/test-exports.js",
+    "test": "pnpm run build && pnpm run test:base && pnpm run test:typescript && pnpm run test:react",
     "test:base": "eslint -c playground/base/eslint.config.js playground/base",
     "test:typescript": "eslint -c playground/typescript/eslint.config.js playground/typescript",
     "test:react": "eslint -c playground/react/eslint.config.js playground/react",

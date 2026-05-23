@@ -1,6 +1,6 @@
 # eslint-config-xgheaven
 
-Flat ESLint 9 shareable config factory (CommonJS), inspired by `neostandard()`.
+Flat ESLint 9 shareable config factory (CommonJS) based on the Standard JavaScript style.
 
 ```bash
 npm install @xgheaven/eslint-config-xgheaven eslint prettier
@@ -81,7 +81,7 @@ Breaking changes in `0.5.0`:
 - Package root exports a config function; config subpath exports were removed.
 - ESLint 8 unsupported; `eslint-config-standard` removed.
 - `default.js` removed; use the package root.
-- Node `>=20` required.
+- Node `>=20.19` required.
 
 ## Development
 
@@ -90,4 +90,8 @@ pnpm install
 pnpm test
 ```
 
-Playground fixtures live under `playground/{base,typescript,react}/`.
+Playground fixtures:
+
+- `playground/base/`: validates the base JavaScript config
+- `playground/typescript/`: validates `config({ ts: true })`
+- `playground/react/`: validates `config({ ts: true, react: true })`

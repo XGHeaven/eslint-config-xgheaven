@@ -1,6 +1,6 @@
 # eslint-config-xgheaven
 
-Flat ESLint 9 shareable config factory (CommonJS) based on the Standard JavaScript style.
+Flat ESLint 9 shareable config factory (CommonJS) based on the Standard JavaScript style, tuned by XGHeaven for personal usage preferences.
 
 ```bash
 npm install @xgheaven/eslint-config-xgheaven eslint prettier

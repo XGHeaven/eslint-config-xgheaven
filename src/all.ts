@@ -1,2 +1,4 @@
 /** Convenience: base + TypeScript + React (pulls all plugin dependencies). */
-module.exports = [...require('./index'), ...require('./typescript'), ...require('./react')]
+const xgheaven = require('./index') as typeof import('./index')
+
+export = xgheaven({ ts: true, react: true })

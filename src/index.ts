@@ -1,4 +1,7 @@
-const neostandard = require('neostandard')
+import type { Linter } from 'eslint'
+import type { NeostandardOptions } from 'neostandard'
+
+const neostandard = require('neostandard') as typeof import('neostandard')
 const importPlugin = require('eslint-plugin-import')
 const nPlugin = require('eslint-plugin-n')
 const promisePlugin = require('eslint-plugin-promise')
@@ -11,30 +14,53 @@ const importRules = require('./rules/import')
 const nodeRules = require('./rules/node')
 const promiseRules = require('./rules/promise')
 
-/** @type {import('eslint').Linter.Config[]} */
-module.exports = [
-  ...neostandard({
-    env: ['node', 'browser'],
-    noStyle: true,
-  }),
-  {
-    plugins: {
-      import: importPlugin,
-      n: nPlugin,
-      promise: promisePlugin,
-      prettier: prettierPlugin,
+interface XgheavenOptions extends NeostandardOptions {
+  /** Include @xgheaven TypeScript rules. `ts` is also passed through to neostandard. */
+  typescript?: boolean
+  /** Include React and React Hooks rules. */
+  react?: boolean
+}
+
+function xgheaven(options: XgheavenOptions = {}): Linter.Config[] {
+  const { typescript = options.ts ?? false, react = false, ...neostandardOptions } = options
+
+  return [
+    ...neostandard({
+      env: ['node', 'browser'],
+      noStyle: true,
+      ...neostandardOptions,
+    }),
+    {
+      plugins: {
+        import: importPlugin,
+        n: nPlugin,
+        promise: promisePlugin,
+        prettier: prettierPlugin,
+      },
+      rules: {
+        ...baseRules,
+        ...importRules,
+        ...nodeRules,
+        ...promiseRules,
+      },
     },
-    rules: {
-      ...baseRules,
-      ...importRules,
-      ...nodeRules,
-      ...promiseRules,
+    eslintConfigPrettier,
+    {
+      rules: {
+        'prettier/prettier': ['warn', prettierOptions],
+      },
     },
-  },
-  eslintConfigPrettier,
-  {
-    rules: {
-      'prettier/prettier': ['warn', prettierOptions],
-    },
-  },
-]
+    ...(typescript ? require('./typescript') : []),
+    ...(react ? require('./react') : []),
+  ]
+}
+
+namespace xgheaven {
+  export const resolveIgnoresFromGitignore = neostandard.resolveIgnoresFromGitignore
+}
+
+Object.assign(xgheaven, {
+  resolveIgnoresFromGitignore: neostandard.resolveIgnoresFromGitignore,
+})
+
+export = xgheaven

@@ -1,7 +1,7 @@
 const xg = require('../..')
 
 module.exports = [
-  ...xg,
+  ...xg(),
   {
     ignores: ['node_modules/**'],
   },

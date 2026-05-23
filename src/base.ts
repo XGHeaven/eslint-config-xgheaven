@@ -1,1 +1,1 @@
-module.exports = require('./index')
+export = require('./index')

@@ -1,11 +1,7 @@
 const xg = require('../..')
-const ts = require('../../dist/typescript')
-const react = require('../../dist/react')
 
 module.exports = [
-  ...xg,
-  ...ts,
-  ...react,
+  ...xg({ ts: true, react: true }),
   {
     ignores: ['node_modules/**'],
   },

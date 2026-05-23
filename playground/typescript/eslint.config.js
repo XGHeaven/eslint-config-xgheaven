@@ -1,9 +1,7 @@
 const xg = require('../..')
-const ts = require('../../dist/typescript')
 
 module.exports = [
-  ...xg,
-  ...ts,
+  ...xg({ ts: true }),
   {
     ignores: ['node_modules/**'],
   },

@@ -14,6 +14,8 @@ const importRules = require('./rules/import')
 const nodeRules = require('./rules/node')
 const promiseRules = require('./rules/promise')
 
+type ResolveIgnoresFromGitignore = typeof neostandard.resolveIgnoresFromGitignore
+
 interface XgheavenOptions extends NeostandardOptions {
   /** Include @xgheaven TypeScript rules. `ts` is also passed through to neostandard. */
   typescript?: boolean
@@ -21,7 +23,12 @@ interface XgheavenOptions extends NeostandardOptions {
   react?: boolean
 }
 
-function xgheaven(options: XgheavenOptions = {}): Linter.Config[] {
+interface Xgheaven {
+  (options?: XgheavenOptions): Linter.Config[]
+  resolveIgnoresFromGitignore: ResolveIgnoresFromGitignore
+}
+
+const xgheaven = ((options: XgheavenOptions = {}): Linter.Config[] => {
   const { typescript = options.ts ?? false, react = false, ...neostandardOptions } = options
 
   return [
@@ -53,14 +60,8 @@ function xgheaven(options: XgheavenOptions = {}): Linter.Config[] {
     ...(typescript ? require('./typescript') : []),
     ...(react ? require('./react') : []),
   ]
-}
+}) as Xgheaven
 
-namespace xgheaven {
-  export const resolveIgnoresFromGitignore = neostandard.resolveIgnoresFromGitignore
-}
-
-Object.assign(xgheaven, {
-  resolveIgnoresFromGitignore: neostandard.resolveIgnoresFromGitignore,
-})
+xgheaven.resolveIgnoresFromGitignore = neostandard.resolveIgnoresFromGitignore
 
 export = xgheaven

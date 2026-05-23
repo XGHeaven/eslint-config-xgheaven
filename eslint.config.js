@@ -1,12 +1,10 @@
 const xg = require('.')
-const ts = require('./dist/typescript')
 
 module.exports = [
   {
     ignores: ['node_modules/**', 'dist/**', 'playground/**', 'docs/**', 'pnpm-lock.yaml'],
   },
-  ...xg,
-  ...ts,
+  ...xg({ ts: true }),
   {
     files: ['src/**/*.ts'],
     rules: {

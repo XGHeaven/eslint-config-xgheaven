@@ -6,34 +6,22 @@ const path = require('node:path')
 const pkgRoot = path.join(__dirname, '..')
 const pkgName = require(path.join(pkgRoot, 'package.json')).name
 
-const loadConfigArrayExport = (subpath) => {
-  const resolved = subpath ? require.resolve(`${pkgName}/${subpath}`) : require.resolve(pkgName)
-  const mod = require(resolved)
-  assert.ok(Array.isArray(mod), `${subpath || '.'} must export a flat config array`)
-  assert.ok(mod.length > 0, `${subpath || '.'} must not be empty`)
-  return mod
-}
+const mod = require(require.resolve(pkgName))
+assert.equal(typeof mod, 'function', '. must export a config function')
+assert.equal(typeof mod.resolveIgnoresFromGitignore, 'function')
 
-const loadConfigFunctionExport = (subpath) => {
-  const resolved = subpath ? require.resolve(`${pkgName}/${subpath}`) : require.resolve(pkgName)
-  const mod = require(resolved)
-  assert.equal(typeof mod, 'function', `${subpath || '.'} must export a config function`)
-  assert.equal(typeof mod.resolveIgnoresFromGitignore, 'function')
-  const config = mod()
-  assert.ok(Array.isArray(config), `${subpath || '.'} function must return a flat config array`)
-  assert.ok(config.length > 0, `${subpath || '.'} function result must not be empty`)
-  assert.ok(Array.isArray(mod({ ts: true, react: true })))
-  return mod
-}
+const baseConfig = mod()
+assert.ok(Array.isArray(baseConfig), 'config function must return a flat config array')
+assert.ok(baseConfig.length > 0, 'config function result must not be empty')
 
-loadConfigFunctionExport('')
-loadConfigFunctionExport('base')
-loadConfigArrayExport('typescript')
-loadConfigArrayExport('react')
-loadConfigArrayExport('all')
+assert.ok(Array.isArray(mod({ ts: true })))
+assert.ok(Array.isArray(mod({ react: true })))
+assert.ok(Array.isArray(mod({ ts: true, react: true })))
+assert.ok(Array.isArray(mod({ ignores: ['dist/**'] })))
 
-const prettierOptions = require(`${pkgName}/prettier-options`)
-assert.equal(typeof prettierOptions, 'object')
-assert.equal(prettierOptions.semi, false)
+assert.doesNotThrow(() => require(`${pkgName}/package.json`))
+assert.throws(() => require(`${pkgName}/typescript`), /Package subpath/)
+assert.throws(() => require(`${pkgName}/react`), /Package subpath/)
+assert.throws(() => require(`${pkgName}/all`), /Package subpath/)
 
 console.log('package exports: ok')

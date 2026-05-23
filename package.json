@@ -1,15 +1,10 @@
 {
   "name": "@xgheaven/eslint-config-xgheaven",
   "version": "0.5.0",
-  "description": "Flat ESLint 9 config for xgheaven, based on neostandard with TypeScript and React presets",
+  "description": "Flat ESLint 9 config factory for xgheaven, based on neostandard with TypeScript and React options",
   "main": "./dist/index.js",
   "exports": {
     ".": "./dist/index.js",
-    "./base": "./dist/base.js",
-    "./typescript": "./dist/typescript.js",
-    "./react": "./dist/react.js",
-    "./all": "./dist/all.js",
-    "./prettier-options": "./dist/prettier-options.js",
     "./package.json": "./package.json"
   },
   "files": [

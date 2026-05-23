@@ -6,6 +6,8 @@ export { greet }
 
 export const unusedOk = 1
 
-void Promise.resolve().then((resolve) => {
-  resolve?.(null)
-})
+Promise.resolve()
+  .then(() => {
+    console.log('resolved')
+  })
+  .catch(console.error)

@@ -1,6 +1,6 @@
 const xg = require('../..')
-const ts = require('../../typescript')
-const react = require('../../react')
+const ts = require('../../dist/typescript')
+const react = require('../../dist/react')
 
 module.exports = [
   ...xg,

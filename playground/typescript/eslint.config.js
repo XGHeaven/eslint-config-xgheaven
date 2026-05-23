@@ -1,5 +1,5 @@
 const xg = require('../..')
-const ts = require('../../typescript')
+const ts = require('../../dist/typescript')
 
 module.exports = [
   ...xg,

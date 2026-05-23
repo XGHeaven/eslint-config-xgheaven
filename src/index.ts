@@ -1,5 +1,4 @@
-const js = require('@eslint/js')
-const globals = require('globals')
+const neostandard = require('neostandard')
 const importPlugin = require('eslint-plugin-import')
 const nPlugin = require('eslint-plugin-n')
 const promisePlugin = require('eslint-plugin-promise')
@@ -14,17 +13,11 @@ const promiseRules = require('./rules/promise')
 
 /** @type {import('eslint').Linter.Config[]} */
 module.exports = [
-  js.configs.recommended,
+  ...neostandard({
+    env: ['node', 'browser'],
+    noStyle: true,
+  }),
   {
-    languageOptions: {
-      ecmaVersion: 'latest',
-      sourceType: 'module',
-      globals: {
-        ...globals.es2024,
-        ...globals.node,
-        ...globals.browser,
-      },
-    },
     plugins: {
       import: importPlugin,
       n: nPlugin,

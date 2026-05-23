@@ -1,20 +1,5 @@
 import path from 'path'
 
-const promise = new Promise((resolve, reject) => {
-  if (!path) {
-    reject(new Error('path missing'))
-    return
-  }
-  resolve()
-})
-  .then(() => {})
-  .catch((error) => {
-    console.log(error)
-  })
-  .finally(() => {})
-
-void promise
-
 const blockSpacing = () => {
   console.log('block-spacing')
 }

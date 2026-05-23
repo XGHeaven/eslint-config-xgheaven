@@ -4,7 +4,7 @@ const tsFiles = ['**/*.{ts,tsx,mts,cts}']
 
 /** @type {import('eslint').Linter.Config[]} */
 module.exports = [
-  ...tseslint.configs.recommended.map((config) => ({
+  ...tseslint.configs.recommended.map((config: Record<string, unknown>) => ({
     files: tsFiles,
     ...config,
   })),

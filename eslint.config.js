@@ -1,8 +1,16 @@
 const xg = require('.')
+const ts = require('./dist/typescript')
 
 module.exports = [
-  ...xg,
   {
-    ignores: ['node_modules/**', 'playground/**', 'docs/**', 'pnpm-lock.yaml'],
+    ignores: ['node_modules/**', 'dist/**', 'playground/**', 'docs/**', 'pnpm-lock.yaml'],
+  },
+  ...xg,
+  ...ts,
+  {
+    files: ['src/**/*.ts'],
+    rules: {
+      '@typescript-eslint/no-require-imports': 'off',
+    },
   },
 ]

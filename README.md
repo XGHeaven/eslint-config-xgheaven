@@ -7,7 +7,7 @@ npm install @xgheaven/eslint-config-xgheaven eslint prettier
 # or: pnpm add @xgheaven/eslint-config-xgheaven eslint prettier
 ```
 
-Requires Node.js `>=20` and ESLint `^9`.
+Requires Node.js `>=20.19` and ESLint `^9`.
 
 ## Usage
 

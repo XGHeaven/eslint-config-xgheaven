@@ -30,12 +30,11 @@
   },
   "peerDependencies": {
     "eslint": "^9.0.0",
-    "prettier": ">=3.0.0"
+    "prettier": ">=3.0.0",
+    "typescript": ">=5.0.0",
+    "react": ">=18.0.0"
   },
   "peerDependenciesMeta": {
-    "prettier": {
-      "optional": true
-    },
     "typescript": {
       "optional": true
     },
